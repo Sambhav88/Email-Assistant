@@ -49,7 +49,7 @@ public class EmailGeneratorService
 
         //Do request and get response
         String Response = webClient.post()
-                .uri(geminiApiUrl+geminiApiKey)
+                .uri((geminiApiUrl+geminiApiKey).trim())
                 .header("Content-Type","application/json")
                 .bodyValue(contentsmap)
                 .retrieve()
@@ -66,7 +66,7 @@ public class EmailGeneratorService
                 return myJson.path("candidates")
                              .get(0)
                              .path("content")
-                             .get(0)
+
                              .path("parts")
                              .get(0)
                              .path("text").asText();
