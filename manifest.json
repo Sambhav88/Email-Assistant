@@ -1,0 +1,29 @@
+{
+  "name": "Email Writer Extension",
+  "description": "AI Powered Email Writer",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": [ "activeTab","storage" ],
+  "host_permissions": [
+    "https://mail.google.com/*",
+    "http://localhost:8080/*"
+  ],
+  "content_scripts": [
+    {
+      "js": ["popup.js"],
+      "matches": ["https://mail.google.com/*"],
+      "css": ["content.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/*"],
+      "matches": ["https://mail.google.com/*"]
+    }
+  ],
+  "action": {
+    "default_title": "Email Writer Assistant",
+    "default_icon": "hello_extensions.png"
+  }
+}
